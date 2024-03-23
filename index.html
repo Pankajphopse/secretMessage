@@ -38,15 +38,6 @@
     input[type="submit"]:hover {
         background-color: #45a049;
     }
-    .message {
-        margin-top: 20px;
-        padding: 10px;
-        text-align: center;
-        border-radius: 4px;
-        background-color: #f8d7da;
-        border: 1px solid #f5c6cb;
-        color: #721c24;
-    }
 </style>
 </head>
 <body>
@@ -62,7 +53,6 @@
 
         <input type="submit" value="Login">
     </form>
-    <div id="message" class="message" style="display: none;"></div>
 </div>
 
 <script>
@@ -84,10 +74,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     ];
     var randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-    // Display the message
-    var messageElement = document.getElementById('message');
-    messageElement.textContent = randomMessage;
-    messageElement.style.display = 'block';
+    // Display the message as a popup
+    alert(randomMessage);
 });
 </script>
 
