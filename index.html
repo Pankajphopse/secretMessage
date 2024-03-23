@@ -3,24 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
+<title>Feedback Form</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
     .container {
-        max-width: 400px;
-        margin: 100px auto;
-        padding: 20px;
+        width: 400px;
         background-color: #fff;
         border-radius: 8px;
+        padding: 20px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h2 {
         text-align: center;
     }
-    input[type="text"], input[type="password"], input[type="submit"] {
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"], textarea, input[type="submit"] {
         width: 100%;
         padding: 10px;
         margin: 8px 0;
@@ -28,6 +37,9 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
+    }
+    textarea {
+        height: 100px;
     }
     input[type="submit"] {
         background-color: #4caf50;
@@ -43,41 +55,20 @@
 <body>
 
 <div class="container">
-    <h2>Login Form</h2>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+    <h2>Feedback Form</h2>
+    <form id="feedbackForm" action="https://formspree.io/your-email" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" required>
 
-        <input type="submit" value="Login">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" value="Submit">
     </form>
 </div>
-
-<script>
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Check if username and password are entered (for simplicity, we're not checking their values)
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Show random April Fool message
-    var messages = [
-        "You've been pranked!",
-        "Happy April Fools' Day!",
-        "It's just a prank bro!",
-        "Gotcha!",
-        "This page is just for fun!",
-        "April Fools! There's no real login here."
-    ];
-    var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-
-    // Display the message as a popup
-    alert(randomMessage);
-});
-</script>
 
 </body>
 </html>
