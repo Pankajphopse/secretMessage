@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("feedbackForm");
   const submitButton = document.getElementById("submitButton");
 
-  // Add event listener to the submit button
-  submitButton.addEventListener("click", function(event) {
+  // Add event listener to the form for form submission
+  form.addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Call a function to handle form submission
-    handleFormSubmission();
+    await handleFormSubmission();
   });
 });
 
@@ -50,15 +50,11 @@ async function handleFormSubmission() {
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  // Construct data object
-  const formData = {
-    name: name,
-    email: email,
-    message: message
-  };
+  // Construct data string
+  const data = `Name: ${name}\nEmail: ${email}\nMessage: ${message}\n\n`;
 
-  // Call updateFile function with email data
-  await updateFile(email);
+  // Call updateFile function with the data string
+  await updateFile(data);
 }
 </script>
 
