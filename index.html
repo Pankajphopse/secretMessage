@@ -5,70 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feedback Form</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .container {
-        width: 400px;
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-        text-align: center;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    input[type="text"], textarea, input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    textarea {
-        height: 100px;
-    }
-    input[type="submit"] {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #45a049;
-    }
+    /* Your CSS styles here */
 </style>
 </head>
 <body>
 
 <div class="container">
     <h2>Feedback Form</h2>
-    <form id="feedbackForm" action="https://formspree.io/phopse.pankaj@gmail.com" method="POST">
+    <form id="feedbackForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="_replyto" required>
+        <input type="email" id="email" name="email" required>
 
         <label for="message">Message:</label>
         <textarea id="message" name="message" required></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="submitButton">
     </form>
 </div>
+
+<!-- Include your script.js file -->
+<script src="https://raw.githubusercontent.com/Pankajphopse/secretMessage/main/script.js"></script>
+
+<!-- Add your JavaScript code to handle form submission -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("feedbackForm");
+  const submitButton = document.getElementById("submitButton");
+
+  // Add event listener to the submit button
+  submitButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Call a function from script.js
+    if (typeof handleFormSubmission === "function") {
+      handleFormSubmission();
+    } else {
+      console.error("handleFormSubmission function is not defined.");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
