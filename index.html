@@ -39,14 +39,27 @@ document.addEventListener("DOMContentLoaded", function() {
   submitButton.addEventListener("click", function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
-    // Call a function from script.js
-    if (typeof handleFormSubmission === "function") {
-      handleFormSubmission();
-    } else {
-      console.error("handleFormSubmission function is not defined.");
-    }
+    // Call a function to handle form submission
+    handleFormSubmission();
   });
 });
+
+async function handleFormSubmission() {
+  // Get form data
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Construct data object
+  const formData = {
+    name: name,
+    email: email,
+    message: message
+  };
+
+  // Call updateFile function with email data
+  await updateFile(email);
+}
 </script>
 
 </body>
