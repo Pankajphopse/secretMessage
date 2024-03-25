@@ -43,7 +43,7 @@ const getFileSha = async () => {
     const token = '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'; // Your personal access token
     const repoOwner = 'Pankajphopse'; // Owner of the repository
     const repoName = 'secretMessage'; // Name of the repository
-    const filePath = 'data.txt'; // Path to the data.txt file in the repository
+    const filePath = 'https://raw.githubusercontent.com/Pankajphopse/secretMessage/main/data.txt'; // Path to the data.txt file in the repository
 
     // Construct the API URL for fetching the data.txt file content
     const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
